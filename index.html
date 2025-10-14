@@ -109,6 +109,59 @@
     <div class="game-card"><a href="sandstone.html">Sandstone</a></div>
     <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
   </div>
+      <h1>Basic Tabs</h1>
+
+    <!-- The container for the tab buttons -->
+    <div class="tab-buttons">
+        <button onclick="openTab(event, 'Tab1Content')">Tab 1</button>
+        <button onclick="openTab(event, 'Tab2Content')">Tab 2</button>
+        <button onclick="openTab(event, 'Tab3Content')">Tab 3</button>
+    </div>
+
+    <!-- The container for the tab content -->
+    <div class="tab-content-container">
+        <div id="Tab1Content">
+            <h2>Content for Tab 1</h2>
+            <p>This is the content for the first tab.</p>
+        </div>
+
+        <div id="Tab2Content" style="display:none;">
+            <h2>Content for Tab 2</h2>
+            <p>This is the content for the second tab. It is hidden by default.</p>
+        </div>
+
+        <div id="Tab3Content" style="display:none;">
+            <h2>Content for Tab 3</h2>
+            <p>This is the content for the third tab. It is also hidden by default.</p>
+        </div>
+    </div>
+
+    <script>
+    function openTab(event, tabName) {
+        var i, tabContent, tabButtons;
+
+        // Get all elements with class="tab-content" and hide them
+        tabContent = document.getElementsByClassName("tab-content-container")[0].children;
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tab-buttons" and remove the "active" class
+        tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
+        for (i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.classList.add("active");
+    }
+
+    // Set the first tab as active by default on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector(".tab-buttons button").click();
+    });
+    </script>
 
   <script>
     function filterGames() {

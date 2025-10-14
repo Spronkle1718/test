@@ -85,41 +85,79 @@
         </div>
 
         <div id="Tab2Content" style="display:none;">
-            <h2>Content for Tab 2</h2>
-            <p>This is the content for the second tab. It is hidden by default.</p>
-        </div>
-
-        <div id="Tab3Content" style="display:none;">
-<div style="height: 700px;"><div id="rt-6ab276a6498317d0341d406023c9890a"></div> <script src="https://rumbletalk.com/client/?rc7DLAuk"></script></div>
-        </div>
-    </div>
-
-    <script>
-    function openTab(event, tabName) {
-        var i, tabContent, tabButtons;
-
-        // Get all elements with class="tab-content" and hide them
-        tabContent = document.getElementsByClassName("tab-content-container")[0].children;
-        for (i = 0; i < tabContent.length; i++) {
-            tabContent[i].style.display = "none";
-        }
-
-        // Get all elements with class="tab-buttons" and remove the "active" class
-        tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
-        for (i = 0; i < tabButtons.length; i++) {
-            tabButtons[i].classList.remove("active");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(tabName).style.display = "block";
-        event.currentTarget.classList.add("active");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." type="image/png" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Pixelify Sans', pixelify-sans;
+      color: #FF5F1F;
     }
 
-    // Set the first tab as active by default on page load
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector(".tab-buttons button").click();
-    });
-    </script>
+    h1 {
+      text-align: center;
+      padding: 20px;
+      font-size: 2.5em;
+      color: #FF5F1F;
+      text-shadow: 0 0 10px #FF5F1F;
+    }
+
+    #searchInput {
+      display: block;
+      margin: 0 auto 20px auto;
+      padding: 10px 15px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #FF5F1F;
+      background-color: #111;
+      color: #FF5F1F;
+      box-shadow: 0 0 10px #FF5F1F;
+      text-align: center;
+      width: 300px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .game-card {
+      background-color: #111;
+      border: 2px solid #FF5F1F;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px #FF5F1F;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #FF5F1F;
+    }
+
+    .game-card a {
+      color: #FF5F1F;
+      text-decoration: none;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px #FF5F1F;
+    }
+  </style>
+</head>
+<body>
   <h1>Melius</h1>
   <input type="text" id="searchInput" placeholder="Search" onkeyup="filterGames()" />
 
@@ -158,6 +196,7 @@
     <div class="game-card"><a href="sandstone.html">Sandstone</a></div>
     <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
   </div>
+
   <script>
     function filterGames() {
       const input = document.getElementById('searchInput').value.toLowerCase();
@@ -169,5 +208,40 @@
       });
     }
   </script>
+</body>
+</html>
+        </div>
+
+        <div id="Tab3Content" style="display:none;">
+<div style="height: 700px;"><div id="rt-6ab276a6498317d0341d406023c9890a"></div> <script src="https://rumbletalk.com/client/?rc7DLAuk"></script></div>
+        </div>
+    </div>
+
+    <script>
+    function openTab(event, tabName) {
+        var i, tabContent, tabButtons;
+
+        // Get all elements with class="tab-content" and hide them
+        tabContent = document.getElementsByClassName("tab-content-container")[0].children;
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tab-buttons" and remove the "active" class
+        tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
+        for (i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.classList.add("active");
+    }
+
+    // Set the first tab as active by default on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector(".tab-buttons button").click();
+    });
+    </script>
 </body>
 </html>

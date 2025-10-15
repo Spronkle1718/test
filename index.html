@@ -77,21 +77,35 @@
     <button onclick="openTab(event, 'Tab3Content')">Groupchat</button>
   </div>
 </body>
-  <style>
-    .tab-buttons {
-    background-color: #000000;
-    border: #ff5f1f;
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+<style>
+  .tab-buttons {
+    text-align: center;
+    margin-top: 20px;
+  }
 
-.tab-button:hover {
-    background-color: #ff5f1f;
-}
+  .tab-buttons button {
+    background-color: #000000;
+    color: white;
+    border: #ff5f1f;
+    padding: 12px 24px;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .tab-buttons button:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+  }
+
+  .tab-buttons button.active {
+    background-color: #222;
+    color: #ff5f1f;
+    border: 2px solid #ff5f1f;
+  }
 </style>
     <!-- The container for the tab content -->
     <div class="tab-content-container">

@@ -70,15 +70,17 @@
     }
   </style>
 </head>
-<div class="tab-buttons">
-    <button class="tab-button" onclick="openTab(event, 'Tab1Content')">Home</button>
-    <button class="tab-button" onclick="openTab(event, 'Tab2Content')">Games</button>
-    <button class="tab-button" onclick="openTab(event, 'Tab3Content')">Groupchat</button>
-</div>
+<body>
+  <div class="tab-buttons">
+    <button onclick="openTab(event, 'Tab1Content')">Home</button>
+    <button onclick="openTab(event, 'Tab2Content')">Games</button>
+    <button onclick="openTab(event, 'Tab3Content')">Groupchat</button>
+  </div>
+</body>
   <style>
-    .tab-button {
-    background-color: #ff5f1f;
-    border: none;
+    .tab-buttons {
+    background-color: #000000;
+    border: #ff5f1f;
     padding: 10px 20px;
     margin: 5px;
     font-size: 16px;
@@ -88,7 +90,7 @@
 }
 
 .tab-button:hover {
-    background-color: #000000;
+    background-color: #ff5f1f;
 }
 
 

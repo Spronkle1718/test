@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cyber Proxy Showcase</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #FF5F1F;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #FF5F1F;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .code-block {
+      background-color: #111;
+      border: 1px solid #FF5F1F;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #FF5F1F;
+      white-space: pre-wrap;
+      font-family: monospace;
+      color: #FF5F1F;
+    }
+
+    .search-box {
+      display: block;
+      margin: 2rem auto;
+      width: 400px;
+      padding: 15px 20px;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: 2px solid #FF5F1F;
+      background-color: #111;
+      color: #FF5F1F;
+      box-shadow: 0 0 10px #FF5F1F;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .search-box:focus {
+      box-shadow: 0 0 20px #FF5F1F;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cyber Proxy Interface</h1>
+
+  <input type="text" class="search-box" placeholder="Search like a teapot..." />
+
+  <div class="section">
+    <h2>🔧 Python Proxy Code</h2>
+    <div class="code-block">
+from mitmproxy import http
+
+def request(flow: http.HTTPFlow):
+    # redirect to different host
+    if flow.request.pretty_host == "example.com":
+        flow.request.host = "mitmproxy.org"
+    # answer from proxy
+    elif flow.request.path.endswith("/brew"):
+        flow.response = http.Response.make(
+            418, b"I'm a teapot",
+            {"Content-Type": "text/plain"}
+        )
+    </div>
+  </div>
+</body>
+</html>

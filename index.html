@@ -4,406 +4,305 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Melius</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
   <link rel="icon" href="https://img.freepik.com/premium-photo/monero-symbol-with-bright-glowing-futuristic-orange-lights-black-background_989822-5777.jpg" type="image/png" />
+
   <style>
-    body {
-      margin: 0;
-      background-color: #000000;
-      font-family: 'Pixelify Sans', pixelify-sans;
-      color: #FF5F1F;
+    :root {
+      --accent: #FF5F1F;
+      --bg: #000;
+      --card-bg: #111;
+      --font: 'Pixelify Sans', pixelify-sans, sans-serif;
     }
 
-    h1 {
-      text-align: center;
-      padding: 20px;
-      font-size: 2.5em;
-      color: #FF5F1F;
-      text-shadow: 0 0 10px #FF5F1F;
-    }
-
-    #searchInput {
-      display: block;
-      margin: 0 auto 20px auto;
-      padding: 10px 15px;
-      font-size: 1em;
-      border-radius: 5px;
-      border: 1px solid #FF5F1F;
-      background-color: #111;
-      color: #FF5F1F;
-      box-shadow: 0 0 10px #FF5F1F;
-      text-align: center;
-      width: 300px;
-    }
-
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .game-card {
-      background-color: #111;
-      border: 2px solid #FF5F1F;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 15px #FF5F1F;
-      transition: transform 0.3s ease;
-    }
-
-    .game-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #FF5F1F;
-    }
-
-    .game-card a {
-      color: #FF5F1F;
-      text-decoration: none;
-      font-size: 1.1em;
-      text-shadow: 0 0 5px #FF5F1F;
-    }
-  </style>
-</head>
-<body>
-  <div class="tab-buttons">
-    <button onclick="openTab(event, 'Tab1Content')">Home</button>
-    <button onclick="openTab(event, 'Tab2Content')">Games</button>
-    <button onclick="openTab(event, 'Tab3Content')">Groupchat</button>
-    <button onclick="openTab(event, 'Tab4Content')">Proxy</button>
-  </div>
-    <script>
-    function openTab(event, tabName) {
-      const tabContent = document.getElementsByClassName("tab-content-container")[0].children;
-      const tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
-
-      for (let i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-      }
-
-      for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].classList.remove("active");
-      }
-
-      document.getElementById(tabName).style.display = "block";
-      event.currentTarget.classList.add("active");
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-      document.querySelector(".tab-buttons button").click();
-    });
-  </script>
-</body>
-
-  
-<style>
-  .tab-buttons {
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .tab-buttons button {
-    background-color: #000000;
-    color: white;
-    border: #ff5f1f;
-    padding: 12px 24px;
-    margin: 0 10px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-
-  .tab-buttons button:hover {
-    background-color: #000000;
-    transform: scale(1.05);
-  }
-
-  .tab-buttons button.active {
-    background-color: #222;
-    color: #ff5f1f;
-    border: 2px solid #ff5f1f;
-  }
-</style>
-    <!-- The container for the tab content -->
-    <div class="tab-content-container">
-        <div id="Tab1Content">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homepage</title>
-  <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
-      font-family: sans-serif;
-    }
-
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #000000;
-      z-index: -1;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      text-align: center;
-      top: 40%;
-    }
-    .highlight {
-  color: #f55f1f; /* This sets the text color to the specified hex code */
-  font-weight: bold; /* Optional: adds bolding for emphasis */
-    }
-  </style>
-</head>
-<body>
-  <div id="particles-js"></div>
-  <div class="content">
-    <h1>Welcome to Melius!</h1>
-    <p>Your boredom ends <span class="highlight">here</span></p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": { "enable": true, "value_area": 800 }
-        },
-        "color": { "value": "#ff5f1f" },
-        "shape": {
-          "type": "circle",
-          "stroke": { "width": 0, "color": "#000000" },
-          "polygon": { "nb_sides": 5 },
-          "image": {
-            "src": "img/github.svg",
-            "width": 100,
-            "height": 100
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 40,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ff5f1f",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": { "opacity": 1 }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": { "distance": 200, "duration": 0.4 },
-          "push": { "particles_nb": 4 },
-          "remove": { "particles_nb": 2 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-</body>
-</html>
-        </div>
-
-        <div id="Tab2Content" style="display:none;">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Games</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." type="image/png" />
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      font-family: 'Pixelify Sans', pixelify-sans;
-      color: #FF5F1F;
-      overflow: auto;
+      background-color: var(--bg);
+      font-family: var(--font);
+      color: var(--accent);
+      overflow-x: hidden;
     }
 
     h1 {
       text-align: center;
       padding: 20px;
       font-size: 2.5em;
-      color: #FF5F1F;
-      text-shadow: 0 0 10px #FF5F1F;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
     }
 
-    #searchInput {
-      display: block;
-      margin: 0 auto 20px auto;
-      padding: 10px 15px;
-      font-size: 1em;
-      border-radius: 5px;
-      border: 1px solid #FF5F1F;
-      background-color: #111;
-      color: #FF5F1F;
-      box-shadow: 0 0 10px #FF5F1F;
+    /* Tab buttons */
+    .tab-buttons {
       text-align: center;
-      width: 300px;
+      margin-top: 20px;
     }
 
+    .tab-buttons button {
+      background-color: #000;
+      color: white;
+      border: 2px solid transparent;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .tab-buttons button:hover {
+      transform: scale(1.05);
+    }
+
+    .tab-buttons button.active {
+      background-color: #111;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    /* Tab content container */
+    .tab-content-container {
+      max-width: 1200px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* Basic card styles used in Games tab */
     .game-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
+      padding: 40px 0;
     }
 
     .game-card {
-      background-color: #111;
-      border: 2px solid #FF5F1F;
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent);
       border-radius: 10px;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 0 15px #FF5F1F;
+      box-shadow: 0 0 15px var(--accent);
       transition: transform 0.3s ease;
     }
 
     .game-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px #FF5F1F;
+      box-shadow: 0 0 25px var(--accent);
     }
 
     .game-card a {
-      color: #FF5F1F;
+      color: var(--accent);
       text-decoration: none;
       font-size: 1.1em;
-      text-shadow: 0 0 5px #FF5F1F;                            
+      text-shadow: 0 0 5px var(--accent);
     }
-    /* Custom Scrollbar for WebKit browsers */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
 
-::-webkit-scrollbar-track {
-  background: #000000;
-}
+    /* Particles (Home) */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      z-index: -1;
+    }
 
-::-webkit-scrollbar-thumb {
-  background-color: #FF5F1F;
-  border-radius: 6px;
-  border: 2px solid #000000;
-}
+    .home-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding: 160px 20px 80px;
+    }
 
-/* Optional: Hover effect */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #ff783f;
-}
+    .highlight {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Tab-specific full-height styling for chat/proxy */
+    .full-height {
+      width: 100%;
+      height: 700px;
+    }
+
+    /* Custom Scrollbar for WebKit browsers in games tab */
+    .games-wrapper {
+      overflow: auto;
+    }
+
+    .games-wrapper::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    .games-wrapper::-webkit-scrollbar-track {
+      background: #000;
+    }
+    .games-wrapper::-webkit-scrollbar-thumb {
+      background-color: var(--accent);
+      border-radius: 6px;
+      border: 2px solid #000;
+    }
+    .games-wrapper::-webkit-scrollbar-thumb:hover {
+      background-color: #ff783f;
+    }
   </style>
 </head>
 <body>
-  <h1>Games</h1>
-  <input type="text" id="searchInput" placeholder="Search" onkeyup="filterGames()" />
-
-  <div class="game-grid">
-    <!-- Original 10 -->
-    <div class="game-card"><a href="cl10minutestildawn.html">10 Minutes Till Dawn</a></div>
-    <div class="game-card"><a href="cl3slices2.html">3 Slices 2</a></div>
-    <div class="game-card"><a href="cl60secondsburgerrun.html">60 Seconds Burger Run</a></div>
-    <div class="game-card"><a href="cl99balls.html">99 Balls</a></div>
-    <div class="game-card"><a href="clADOFAI.html">A Dance of Fire and Ice</a></div>
-    <div class="game-card"><a href="clalienskyinvasion.html">Alien Sky Invasion</a></div>
-    <div class="game-card"><a href="clamaze.html">Amazing Maze</a></div>
-    <div class="game-card"><a href="clangrybirds.html">Angry Birds</a></div>
-    <div class="game-card"><a href="clarcheryworldtour.html">Archery World Tour</a></div>
-    <div class="game-card"><a href="clasmallworldcup.html">ASmall World Cup</a></div>
-
-    <!-- New 18 -->
-    <div class="game-card"><a href="clawesometanks2.html">Awesome Tanks 2</a></div>
-    <div class="game-card"><a href="clbaconmaydie.html">Bacon May Die</a></div>
-    <div class="game-card"><a href="clbitlife.html">BitLife</a></div>
-    <div class="game-card"><a href="clbloons.html">Bloons</a></div>
-    <div class="game-card"><a href="clbloxorz.html">Bloxorz</a></div>
-    <div class="game-card"><a href="clcrossyroad.html">Crossy Road</a></div>
-    <div class="game-card"><a href="clcoreball.html">Core Ball</a></div>
-    <div class="game-card"><a href="clcrazycattle3d.html">Crazy Cattle 3D</a></div>
-    <div class="game-card"><a href="clcurveball.html">Curveball</a></div>
-    <div class="game-card"><a href="cldrifthunters.html">Drift Hunters</a></div>
-    <div class="game-card"><a href="cldriftboss.html">Drift Boss</a></div>
-    <div class="game-card"><a href="cldrivemad.html">Drive Mad</a></div>
-    <div class="game-card"><a href="cleffingworms.html">Effing Worms</a></div>
-    <div class="game-card"><a href="clflappydunk.html">Flappy Dunk</a></div>
-    <div class="game-card"><a href="clgooglebaseball.html">Google Baseball</a></div>
-    <div class="game-card"><a href="clgorescriptclassic.html">Gorescript Classic</a></div>
-    <div class="game-card"><a href="clgoogledino.html">Google Dino</a></div>
-    <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
-    <div class="game-card"><a href="sandstone.html">Sandstone</a></div>
-    <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
+  <!-- Tab buttons -->
+  <div class="tab-buttons">
+    <button data-tab="Tab1Content">Home</button>
+    <button data-tab="Tab2Content">Games</button>
+    <button data-tab="Tab3Content">Groupchat</button>
+    <button data-tab="Tab4Content">Proxy</button>
   </div>
 
+  <!-- Tab content container (ALL tab panels must be direct children of this container) -->
+  <div class="tab-content-container">
+    <!-- HOME -->
+    <div id="Tab1Content" class="tab-panel" style="display:block; position:relative; min-height:400px;">
+      <div id="particles-js" aria-hidden="true"></div>
+      <div class="home-content">
+        <h1>Welcome to Melius!</h1>
+        <p>Your boredom ends <span class="highlight">here</span></p>
+      </div>
+    </div>
+
+    <!-- GAMES -->
+    <div id="Tab2Content" class="tab-panel" style="display:none;">
+      <h1>Games</h1>
+      <input type="text" id="searchInput" placeholder="Search" onkeyup="filterGames()" style="display:block; margin:0 auto 10px auto; padding:10px 12px; width:300px; border-radius:5px; border:1px solid var(--accent); background:#111; color:var(--accent); text-align:center;" />
+      <div class="games-wrapper">
+        <div class="game-grid">
+          <div class="game-card"><a href="cl10minutestildawn.html">10 Minutes Till Dawn</a></div>
+          <div class="game-card"><a href="cl3slices2.html">3 Slices 2</a></div>
+          <div class="game-card"><a href="cl60secondsburgerrun.html">60 Seconds Burger Run</a></div>
+          <div class="game-card"><a href="cl99balls.html">99 Balls</a></div>
+          <div class="game-card"><a href="clADOFAI.html">A Dance of Fire and Ice</a></div>
+          <div class="game-card"><a href="clalienskyinvasion.html">Alien Sky Invasion</a></div>
+          <div class="game-card"><a href="clamaze.html">Amazing Maze</a></div>
+          <div class="game-card"><a href="clangrybirds.html">Angry Birds</a></div>
+          <div class="game-card"><a href="clarcheryworldtour.html">Archery World Tour</a></div>
+          <div class="game-card"><a href="clasmallworldcup.html">ASmall World Cup</a></div>
+
+          <div class="game-card"><a href="clawesometanks2.html">Awesome Tanks 2</a></div>
+          <div class="game-card"><a href="clbaconmaydie.html">Bacon May Die</a></div>
+          <div class="game-card"><a href="clbitlife.html">BitLife</a></div>
+          <div class="game-card"><a href="clbloons.html">Bloons</a></div>
+          <div class="game-card"><a href="clbloxorz.html">Bloxorz</a></div>
+          <div class="game-card"><a href="clcrossyroad.html">Crossy Road</a></div>
+          <div class="game-card"><a href="clcoreball.html">Core Ball</a></div>
+          <div class="game-card"><a href="clcrazycattle3d.html">Crazy Cattle 3D</a></div>
+          <div class="game-card"><a href="clcurveball.html">Curveball</a></div>
+          <div class="game-card"><a href="cldrifthunters.html">Drift Hunters</a></div>
+          <div class="game-card"><a href="cldriftboss.html">Drift Boss</a></div>
+          <div class="game-card"><a href="cldrivemad.html">Drive Mad</a></div>
+          <div class="game-card"><a href="cleffingworms.html">Effing Worms</a></div>
+          <div class="game-card"><a href="clflappydunk.html">Flappy Dunk</a></div>
+          <div class="game-card"><a href="clgooglebaseball.html">Google Baseball</a></div>
+          <div class="game-card"><a href="clgorescriptclassic.html">Gorescript Classic</a></div>
+          <div class="game-card"><a href="clgoogledino.html">Google Dino</a></div>
+          <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
+          <div class="game-card"><a href="sandstone.html">Sandstone</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUPCHAT -->
+    <div id="Tab3Content" class="tab-panel" style="display:none;">
+      <div class="full-height">
+        <div id="rt-6ab276a6498317d0341d406023c9890a"></div>
+        <script async src="https://rumbletalk.com/client/?rc7DLAuk"></script>
+      </div>
+    </div>
+
+    <!-- PROXY (was previously outside the tab container, which caused the bug) -->
+    <div id="Tab4Content" class="tab-panel" style="display:none;">
+      <div class="full-height">
+        <p style="color:#fff; padding:20px;">This is the proxy tab content.</p>
+        <!-- Add your proxy iframe or content here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <script>
+    // Single openTab function that hides all panels inside .tab-content-container
+    let particlesInitialized = false;
+
+    function initParticlesIfNeeded() {
+      if (particlesInitialized) return;
+      if (!window.particlesJS) return; // particles library not loaded
+      try {
+        particlesJS("particles-js", {
+          "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ff5f1f" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#ff5f1f", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 6, "out_mode": "out" }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+          },
+          "retina_detect": true
+        });
+        particlesInitialized = true;
+      } catch (e) {
+        console.warn("particles.js init failed:", e);
+      }
+    }
+
+    function openTab(event) {
+      const tabName = event.currentTarget.getAttribute('data-tab');
+      const container = document.getElementsByClassName("tab-content-container")[0];
+      const panels = container.children;
+      const buttons = document.getElementsByClassName("tab-buttons")[0].children;
+
+      // Hide all panels
+      for (let i = 0; i < panels.length; i++) {
+        panels[i].style.display = "none";
+      }
+
+      // Remove active from all buttons
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+
+      // Show selected panel and mark button active
+      const panel = document.getElementById(tabName);
+      if (panel) panel.style.display = "block";
+      event.currentTarget.classList.add("active");
+
+      // Initialize particles when Home is shown
+      if (tabName === "Tab1Content") {
+        initParticlesIfNeeded();
+      }
+    }
+
+    // Attach click handlers to buttons
+    document.addEventListener("DOMContentLoaded", function() {
+      const btns = document.querySelectorAll(".tab-buttons button");
+      btns.forEach(btn => btn.addEventListener("click", openTab));
+
+      // Click the first tab to initialize the page
+      if (btns.length) btns[0].click();
+    });
+
+    // Simple filter function for games
     function filterGames() {
       const input = document.getElementById('searchInput').value.toLowerCase();
       const cards = document.querySelectorAll('.game-card');
@@ -414,49 +313,5 @@
       });
     }
   </script>
-</body>
-</html>
-        </div>
-
-        <div id="Tab3Content" style="display:block; width:100%; height:100vh;">
-<div style="height: 700px;"><div id="rt-6ab276a6498317d0341d406023c9890a"></div> <script src="https://rumbletalk.com/client/?rc7DLAuk"></script></div>
-</div>
-        </div>
-
-<div id="Tab4Content" style="display:none; width:100%; height:100vh;">
-  <div style="height: 700px;">
-    <p>This is the new tab content.</p>
-  </div>
-  
-</div>
-
-    </div>
-
-    <script>
-    function openTab(event, tabName) {
-        var i, tabContent, tabButtons;
-
-        // Get all elements with class="tab-content" and hide them
-        tabContent = document.getElementsByClassName("tab-content-container")[0].children;
-        for (i = 0; i < tabContent.length; i++) {
-            tabContent[i].style.display = "none";
-        }
-
-        // Get all elements with class="tab-buttons" and remove the "active" class
-        tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
-        for (i = 0; i < tabButtons.length; i++) {
-            tabButtons[i].classList.remove("active");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(tabName).style.display = "block";
-        event.currentTarget.classList.add("active");
-    }
-
-    // Set the first tab as active by default on page load
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector(".tab-buttons button").click();
-    });
-    </script>
 </body>
 </html>

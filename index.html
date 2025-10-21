@@ -4,106 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Melius</title>
-
-  <!-- Font + Favicon -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://img.freepik.com/premium-photo/monero-symbol-with-bright-glowing-futuristic-orange-lights-black-background_989822-5777.jpg" type="image/png" />
-
   <style>
     body {
       margin: 0;
       background-color: #000000;
-      font-family: 'Pixelify Sans', sans-serif;
-      color: #FF5F1F;
-    }
-
-    h1 {
-      text-align: center;
-      padding: 1rem;
-      font-size: 2.5em;
-      text-shadow: 0 0 10px #FF5F1F;
-    }
-
-    .tab-bar {
-      display: flex;
-      justify-content: center;
-      background-color: #111;
-      box-shadow: 0 0 10px #FF5F1F;
-    }
-
-    .tab {
-      padding: 1rem 2rem;
-      cursor: pointer;
-      border: none;
-      background: none;
-      color: #FF5F1F;
-      font-size: 1.1em;
-      transition: background 0.3s ease;
-    }
-
-    .tab:hover,
-    .tab.active {
-      background-color: #222;
-      box-shadow: inset 0 0 10px #FF5F1F;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 2rem;
-      text-align: center;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
-<body>
-  <h1>Cyber Tab Hub</h1>
-
-  <div class="tab-bar">
-    <button class="tab active" onclick="showTab(1)">Home</button>
-    <button class="tab" onclick="showTab(2)">Games</button>
-    <button class="tab" onclick="showTab(3)">Groupchat</button>
-    <button class="tab" onclick="showTab(4)">Proxy</button>
-  </div>
-
-  <div id="tab-1" class="tab-content active">
-    <h2>Welcome to Tab One</h2>
-    <p>This is the first glowing section.</p>
-  </div>
-  <div id="tab-2" class="tab-content">
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Games</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." type="image/png" />
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
       font-family: 'Pixelify Sans', pixelify-sans;
       color: #FF5F1F;
-      overflow: auto;
     }
 
     h1 {
@@ -156,102 +66,86 @@
       color: #FF5F1F;
       text-decoration: none;
       font-size: 1.1em;
-      text-shadow: 0 0 5px #FF5F1F;                            
+      text-shadow: 0 0 5px #FF5F1F;
     }
-    /* Custom Scrollbar for WebKit browsers */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
 
-::-webkit-scrollbar-track {
-  background: #000000;
-}
+    .tab-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-::-webkit-scrollbar-thumb {
-  background-color: #FF5F1F;
-  border-radius: 6px;
-  border: 2px solid #000000;
-}
+    .tab-buttons button {
+      background-color: #000000;
+      color: white;
+      border: #ff5f1f;
+      padding: 12px 24px;
+      margin: 0 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-/* Optional: Hover effect */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #ff783f;
-}
+    .tab-buttons button:hover {
+      background-color: #000000;
+      transform: scale(1.05);
+    }
+
+    .tab-buttons button.active {
+      background-color: #222;
+      color: #ff5f1f;
+      border: 2px solid #ff5f1f;
+    }
   </style>
 </head>
 <body>
-  <h1>Games</h1>
-  <input type="text" id="searchInput" placeholder="Search" onkeyup="filterGames()" />
+  <div class="tab-buttons">
+    <button onclick="openTab(event, 'Tab1Content')">Home</button>
+    <button onclick="openTab(event, 'Tab2Content')">Games</button>
+    <button onclick="openTab(event, 'Tab3Content')">Groupchat</button>
+    <button onclick="openTab(event, 'Tab4Content')">Proxy</button>
+  </div>
 
-  <div class="game-grid">
-    <!-- Original 10 -->
-    <div class="game-card"><a href="cl10minutestildawn.html">10 Minutes Till Dawn</a></div>
-    <div class="game-card"><a href="cl3slices2.html">3 Slices 2</a></div>
-    <div class="game-card"><a href="cl60secondsburgerrun.html">60 Seconds Burger Run</a></div>
-    <div class="game-card"><a href="cl99balls.html">99 Balls</a></div>
-    <div class="game-card"><a href="clADOFAI.html">A Dance of Fire and Ice</a></div>
-    <div class="game-card"><a href="clalienskyinvasion.html">Alien Sky Invasion</a></div>
-    <div class="game-card"><a href="clamaze.html">Amazing Maze</a></div>
-    <div class="game-card"><a href="clangrybirds.html">Angry Birds</a></div>
-    <div class="game-card"><a href="clarcheryworldtour.html">Archery World Tour</a></div>
-    <div class="game-card"><a href="clasmallworldcup.html">ASmall World Cup</a></div>
+  <!-- Tab content containers -->
+  <div class="tab-content-container">
+    <div id="Tab1Content"></div>
 
-    <!-- New 18 -->
-    <div class="game-card"><a href="clawesometanks2.html">Awesome Tanks 2</a></div>
-    <div class="game-card"><a href="clbaconmaydie.html">Bacon May Die</a></div>
-    <div class="game-card"><a href="clbitlife.html">BitLife</a></div>
-    <div class="game-card"><a href="clbloons.html">Bloons</a></div>
-    <div class="game-card"><a href="clbloxorz.html">Bloxorz</a></div>
-    <div class="game-card"><a href="clcrossyroad.html">Crossy Road</a></div>
-    <div class="game-card"><a href="clcoreball.html">Core Ball</a></div>
-    <div class="game-card"><a href="clcrazycattle3d.html">Crazy Cattle 3D</a></div>
-    <div class="game-card"><a href="clcurveball.html">Curveball</a></div>
-    <div class="game-card"><a href="cldrifthunters.html">Drift Hunters</a></div>
-    <div class="game-card"><a href="cldriftboss.html">Drift Boss</a></div>
-    <div class="game-card"><a href="cldrivemad.html">Drive Mad</a></div>
-    <div class="game-card"><a href="cleffingworms.html">Effing Worms</a></div>
-    <div class="game-card"><a href="clflappydunk.html">Flappy Dunk</a></div>
-    <div class="game-card"><a href="clgooglebaseball.html">Google Baseball</a></div>
-    <div class="game-card"><a href="clgorescriptclassic.html">Gorescript Classic</a></div>
-    <div class="game-card"><a href="clgoogledino.html">Google Dino</a></div>
-    <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
-    <div class="game-card"><a href="sandstone.html">Sandstone</a></div>
-    <div class="game-card"><a href="cljustoneboss.html">Just One Boss</a></div>
+    <div id="Tab2Content" style="display:none;"></div>
+
+    <div id="Tab3Content" style="display:none; width:100%; height:100vh;"></div>
+
+    <div id="Tab4Content" style="display:none;">
+      <h1>Proxy Tools</h1>
+      <p style="text-align:center;">This is your glowing orange proxy tab. Drop in your tools, logs, or controls here.</p>
+    </div>
   </div>
 
   <script>
-    function filterGames() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.game-card');
+    function openTab(event, tabName) {
+      var i, tabContent, tabButtons;
 
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(input) ? 'block' : 'none';
-      });
+      // Hide all tab contents
+      tabContent = document.getElementsByClassName("tab-content-container")[0].children;
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Remove active class from all buttons
+      tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
+      for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+      }
+
+      // Show selected tab and activate button
+      document.getElementById(tabName).style.display = "block";
+      event.currentTarget.classList.add("active");
     }
-  </script>
-</body>
-</html>
-  </div>
-  <div id="tab-3" class="tab-content">
 
-  </div>
-  <div id="tab-4" class="tab-content">
-    <h2>Welcome to Tab Four</h2>
-    <p>This is the fourth glowing section.</p>
-  </div>
-
-  <script>
-    function showTab(index) {
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
-
-      tabs.forEach((tab, i) => {
-        tab.classList.toggle('active', i === index);
-        contents[i].classList.toggle('active', i === index);
-      });
-    }
+    // Activate first tab on load
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector(".tab-buttons button").click();
+    });
   </script>
 </body>
 </html>

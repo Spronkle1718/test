@@ -137,10 +137,83 @@
     <div id="Tab3Content" style="display:none; width:100%; height:100vh;"></div>
 
     <div id="Tab4Content" style="display:none;">
-<form action="/proxy" method="get">
-  <input type="text" name="url" placeholder="Enter URL" />
-  <button type="submit">Go</button>
-</form>
+<div id="Tab4Content" style="display:none;">
+  <h1 style="
+    text-align: center;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #FF5F1F;
+    text-shadow: 0 0 10px #FF5F1F;
+  ">Proxy Tools</h1>
+
+  <p style="
+    text-align: center;
+    color: #FF5F1F;
+    font-family: 'Pixelify Sans', sans-serif;
+    margin-bottom: 30px;
+  ">
+    Enter a URL below to browse through your glowing proxy. No reloads, no redirects — just style.
+  </p>
+
+  <form id="proxyForm" style="text-align:center;">
+    <input type="text" name="url" id="proxyInput" placeholder="Enter URL" style="
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 2px solid #FF5F1F;
+      background-color: #111;
+      color: #FF5F1F;
+      box-shadow: 0 0 12px #FF5F1F;
+      width: 320px;
+      text-align: center;
+      font-family: 'Pixelify Sans', sans-serif;
+    " />
+    <button type="submit" style="
+      background-color: #000;
+      color: #FF5F1F;
+      border: 2px solid #FF5F1F;
+      padding: 12px 24px;
+      margin-left: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #FF5F1F;
+      transition: transform 0.2s ease;
+      font-family: 'Pixelify Sans', sans-serif;
+    ">Go</button>
+  </form>
+
+  <div id="proxyResult" style="
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #FF5F1F;
+    color: #FF5F1F;
+    font-family: 'Pixelify Sans', sans-serif;
+    overflow-y: auto;
+    max-height: 70vh;
+  ">
+    <p style="text-align:center;">Proxy results will appear here...</p>
+  </div>
+
+  <script>
+    document.getElementById("proxyForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const url = document.getElementById("proxyInput").value;
+      fetch(`/proxy?url=${encodeURIComponent(url)}`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("proxyResult").innerHTML = html;
+        })
+        .catch(err => {
+          document.getElementById("proxyResult").innerHTML = `<p>Error loading content.</p>`;
+          console.error(err);
+        });
+    });
+  </script>
+</div>
+
     </div>
   </div>
 

@@ -132,7 +132,62 @@
     </div>
 
     <div id="Tab4Content">
-<script src="https://gist.github.com/banesullivan/bc5c37e7b09058d5064b1c97e541f4d1.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Intercept Fetch Example</title>
+</head>
+<body>
+    <h1>Proxy Intercept Fetch Example</h1>
+    <button id="make-fetch">Make Fetch Call</button>
+    <div id="output"></div>
+
+    <script>
+        // Create a Proxy object to intercept fetch calls
+        const fetchProxy = new Proxy(window.fetch, {
+            apply(target, thisArg, argumentsList) {
+                const [url] = argumentsList;
+                console.log('Proxy intercepted fetch:', url);
+
+                // Check if the request matches the endpoint you want to intercept
+                if (url.includes('/api/mock-endpoint')) {
+                    console.log('Intercepted call to /api/mock-endpoint');
+
+                    // Return a mock response
+                    return Promise.resolve(
+                        new Response(JSON.stringify({ message: 'Proxy Intercepted Response!' }), {
+                            headers: { 'Content-Type': 'application/json' },
+                            status: 200,
+                        })
+                    );
+                }
+
+                // Forward the request to the original fetch
+                return Reflect.apply(target, thisArg, argumentsList);
+            },
+        });
+
+        // Replace the global fetch function with the proxy
+        window.fetch = fetchProxy;
+
+        // Add an event listener to the button
+        document.getElementById('make-fetch').addEventListener('click', () => {
+            // Make a fetch call to the mock endpoint
+            fetch('/api/mock-endpoint')
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById('output').innerText = JSON.stringify(data);
+                })
+                .catch((error) => {
+                    console.error('Fetch error:', error);
+                    document.getElementById('output').innerText = `Error: ${error.message}`;
+                });
+        });
+    </script>
+</body>
+</html>
   </div>
 
   <script>

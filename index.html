@@ -9,10 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://img.freepik.com/premium-photo/monero-symbol-with-bright-glowing-futuristic-orange-lights-black-background_989822-5777.jpg" type="image/png" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      background-color: #000000;
-      font-family: 'Pixelify Sans', pixelify-sans;
+      background-color: #000;
+      font-family: 'Pixelify Sans', sans-serif;
       color: #FF5F1F;
     }
 
@@ -20,107 +24,93 @@
       text-align: center;
       padding: 20px;
       font-size: 2.5em;
-      color: #FF5F1F;
       text-shadow: 0 0 10px #FF5F1F;
-    }
-
-    #searchInput {
-      display: block;
-      margin: 0 auto 20px auto;
-      padding: 10px 15px;
-      font-size: 1em;
-      border-radius: 5px;
-      border: 1px solid #FF5F1F;
-      background-color: #111;
-      color: #FF5F1F;
-      box-shadow: 0 0 10px #FF5F1F;
-      text-align: center;
-      width: 300px;
-    }
-
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .game-card {
-      background-color: #111;
-      border: 2px solid #FF5F1F;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 15px #FF5F1F;
-      transition: transform 0.3s ease;
-    }
-
-    .game-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #FF5F1F;
-    }
-
-    .game-card a {
-      color: #FF5F1F;
-      text-decoration: none;
-      font-size: 1.1em;
-      text-shadow: 0 0 5px #FF5F1F;
     }
 
     .tab-buttons {
       text-align: center;
-      margin-top: 20px;
+      margin: 30px 0;
     }
 
     .tab-buttons button {
-      background-color: #000000;
-      color: white;
-      border: #ff5f1f;
+      background-color: #000;
+      color: #FF5F1F;
+      border: 2px solid #FF5F1F;
       padding: 12px 24px;
-      margin: 0 10px;
+      margin: 0 10px 10px 10px;
       font-size: 16px;
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 0 10px #FF5F1F;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     .tab-buttons button:hover {
-      background-color: #000000;
       transform: scale(1.05);
+      box-shadow: 0 0 15px #FF5F1F;
     }
 
     .tab-buttons button.active {
-      background-color: #222;
-      color: #ff5f1f;
-      border: 2px solid #ff5f1f;
+      background-color: #111;
+      color: #FF5F1F;
+      border: 2px solid #FF5F1F;
+      box-shadow: 0 0 15px #FF5F1F;
     }
+
+    .tab-content-container > div {
+      padding: 40px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #Tab1Content,
+    #Tab2Content,
+    #Tab3Content {
+      min-height: 300px;
+      background-color: #111;
+      border: 2px solid #FF5F1F;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #FF5F1F;
+      text-align: center;
+    }
+
+    iframe {
+      border-radius: 10px;
+      box-shadow: 0 0 15px #FF5F1F;
+    }
+
     /* Glowing orange custom scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
 
-::-webkit-scrollbar-track {
-  background: #000000;
-}
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
 
-::-webkit-scrollbar-thumb {
-  background-color: #FF5F1F;
-  border-radius: 6px;
-  border: 2px solid #000000;
-  box-shadow: 0 0 10px #FF5F1F;
-}
+    ::-webkit-scrollbar-thumb {
+      background-color: #FF5F1F;
+      border-radius: 6px;
+      border: 2px solid #000;
+      box-shadow: 0 0 10px #FF5F1F;
+    }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #ff783f;
-  box-shadow: 0 0 15px #FF5F1F;
-}
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #ff783f;
+      box-shadow: 0 0 15px #FF5F1F;
+    }
   </style>
 </head>
 <body>
+  <h1>Melius</h1>
+
   <div class="tab-buttons">
     <button onclick="openTab(event, 'Tab1Content')">Home</button>
     <button onclick="openTab(event, 'Tab2Content')">Games</button>
@@ -128,42 +118,42 @@
     <button onclick="openTab(event, 'Tab4Content')">Proxy</button>
   </div>
 
-  <!-- Tab content containers -->
   <div class="tab-content-container">
-    <div id="Tab1Content"></div>
+    <div id="Tab1Content">
+      <p>Welcome to Melius. This is your glowing homepage.</p>
+    </div>
 
-    <div id="Tab2Content" style="display:none;"></div>
+    <div id="Tab2Content">
+      <p>Game grid or content goes here.</p>
+    </div>
 
-    <div id="Tab3Content" style="display:none; width:100%; height:100vh;"></div>
+    <div id="Tab3Content" style="width:100%; height:100vh;">
+      <p>Groupchat interface placeholder.</p>
+    </div>
 
-    <div id="Tab4Content" style="display:none;">
-<iframe src="https://reconfiguring.vanitypanels.com/" width="100%" height="600" style="border: none;">
-  Your browser does not support iframes.
-</iframe>
+    <div id="Tab4Content">
+      <iframe src="https://reconfiguring.vanitypanels.com/" width="100%" height="600" style="border: none;">
+        Your browser does not support iframes.
+      </iframe>
+    </div>
   </div>
 
   <script>
     function openTab(event, tabName) {
-      var i, tabContent, tabButtons;
-
-      // Hide all tab contents
-      tabContent = document.getElementsByClassName("tab-content-container")[0].children;
-      for (i = 0; i < tabContent.length; i++) {
+      const tabContent = document.getElementsByClassName("tab-content-container")[0].children;
+      for (let i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
       }
 
-      // Remove active class from all buttons
-      tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
-      for (i = 0; i < tabButtons.length; i++) {
+      const tabButtons = document.getElementsByClassName("tab-buttons")[0].children;
+      for (let i = 0; i < tabButtons.length; i++) {
         tabButtons[i].classList.remove("active");
       }
 
-      // Show selected tab and activate button
       document.getElementById(tabName).style.display = "block";
       event.currentTarget.classList.add("active");
     }
 
-    // Activate first tab on load
     document.addEventListener("DOMContentLoaded", function() {
       document.querySelector(".tab-buttons button").click();
     });

@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://img.freepik.com/premium-photo/monero-symbol-with-bright-glowing-futuristic-orange-lights-black-background_989822-5777.jpg" type="image/png" />
   <style>
     * {
       box-sizing: border-box;
@@ -17,75 +16,104 @@
       margin: 0;
       background-color: #000;
       font-family: 'Pixelify Sans', sans-serif;
-      color: #FF5F1F;
+      color: #a020f0; /* purple theme */
+      overflow-x: hidden;
     }
 
     h1 {
       text-align: center;
       padding: 20px;
       font-size: 2.5em;
-      text-shadow: 0 0 10px #FF5F1F;
+      text-shadow: 0 0 12px #a020f0;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeUp 1s ease forwards;
     }
 
     .tab-buttons {
       text-align: center;
       margin: 30px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.3s;
     }
 
     .tab-buttons button {
       background-color: #000;
-      color: #FF5F1F;
-      border: 2px solid #FF5F1F;
+      color: #a020f0;
+      border: 2px solid #a020f0;
       padding: 12px 24px;
       margin: 0 10px 10px 10px;
       font-size: 16px;
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 0 10px #FF5F1F;
+      box-shadow: 0 0 10px #a020f0;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     .tab-buttons button:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px #FF5F1F;
+      box-shadow: 0 0 15px #a020f0;
     }
 
     .tab-buttons button.active {
       background-color: #111;
-      color: #FF5F1F;
-      border: 2px solid #FF5F1F;
-      box-shadow: 0 0 15px #FF5F1F;
+      color: #a020f0;
+      border: 2px solid #a020f0;
+      box-shadow: 0 0 15px #a020f0;
     }
 
     .tab-content-container > div {
       padding: 40px;
       display: none;
-      animation: fadeIn 0.3s ease-in-out;
+      animation: fadeUp 0.8s ease forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    #Tab1Content,
-    #Tab2Content,
-    #Tab3Content {
-      min-height: 300px;
+    /* Games grid */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .game-card {
       background-color: #111;
-      border: 2px solid #FF5F1F;
+      border: 2px solid #a020f0;
       border-radius: 10px;
-      box-shadow: 0 0 15px #FF5F1F;
+      padding: 20px;
       text-align: center;
+      box-shadow: 0 0 15px #a020f0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    iframe {
-      border-radius: 10px;
-      box-shadow: 0 0 15px #FF5F1F;
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #a020f0;
     }
 
-    /* Glowing orange custom scrollbar */
+    .game-card a {
+      color: #a020f0;
+      text-decoration: none;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px #a020f0;
+    }
+
+    /* Custom purple scrollbar */
     ::-webkit-scrollbar {
       width: 12px;
       height: 12px;
@@ -96,15 +124,15 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background-color: #FF5F1F;
+      background-color: #a020f0;
       border-radius: 6px;
       border: 2px solid #000;
-      box-shadow: 0 0 10px #FF5F1F;
+      box-shadow: 0 0 10px #a020f0;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background-color: #ff783f;
-      box-shadow: 0 0 15px #FF5F1F;
+      background-color: #b84ef7;
+      box-shadow: 0 0 15px #a020f0;
     }
   </style>
 </head>
@@ -115,79 +143,30 @@
     <button onclick="openTab(event, 'Tab1Content')">Home</button>
     <button onclick="openTab(event, 'Tab2Content')">Games</button>
     <button onclick="openTab(event, 'Tab3Content')">Groupchat</button>
-    <button onclick="openTab(event, 'Tab4Content')">Proxy</button>
   </div>
 
   <div class="tab-content-container">
+    <!-- Home -->
     <div id="Tab1Content">
-      <p>Welcome to Melius. This is your glowing homepage.</p>
+      <p>Welcome to Melius — your glowing purple hub. Everything fades in from the bottom when you arrive.</p>
     </div>
 
+    <!-- Games -->
     <div id="Tab2Content">
-      <p>Game grid or content goes here.</p>
+      <div class="game-grid">
+        <div class="game-card"><a href="#">Game 1</a></div>
+        <div class="game-card"><a href="#">Game 2</a></div>
+        <div class="game-card"><a href="#">Game 3</a></div>
+        <div class="game-card"><a href="#">Game 4</a></div>
+        <div class="game-card"><a href="#">Game 5</a></div>
+        <div class="game-card"><a href="#">Game 6</a></div>
+      </div>
     </div>
 
-    <div id="Tab3Content" style="width:100%; height:100vh;">
-      <p>Groupchat interface placeholder.</p>
+    <!-- Groupchat -->
+    <div id="Tab3Content">
+      <p>Groupchat interface placeholder — glowing purple theme.</p>
     </div>
-
-    <div id="Tab4Content">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy Intercept Fetch Example</title>
-</head>
-<body>
-    <h1>Proxy Intercept Fetch Example</h1>
-    <button id="make-fetch">Make Fetch Call</button>
-    <div id="output"></div>
-
-    <script>
-        // Create a Proxy object to intercept fetch calls
-        const fetchProxy = new Proxy(window.fetch, {
-            apply(target, thisArg, argumentsList) {
-                const [url] = argumentsList;
-                console.log('Proxy intercepted fetch:', url);
-
-                // Check if the request matches the endpoint you want to intercept
-                if (url.includes('/api/mock-endpoint')) {
-                    console.log('Intercepted call to /api/mock-endpoint');
-
-                    // Return a mock response
-                    return Promise.resolve(
-                        new Response(JSON.stringify({ message: 'Proxy Intercepted Response!' }), {
-                            headers: { 'Content-Type': 'application/json' },
-                            status: 200,
-                        })
-                    );
-                }
-
-                // Forward the request to the original fetch
-                return Reflect.apply(target, thisArg, argumentsList);
-            },
-        });
-
-        // Replace the global fetch function with the proxy
-        window.fetch = fetchProxy;
-
-        // Add an event listener to the button
-        document.getElementById('make-fetch').addEventListener('click', () => {
-            // Make a fetch call to the mock endpoint
-            fetch('/api/mock-endpoint')
-                .then((response) => response.json())
-                .then((data) => {
-                    document.getElementById('output').innerText = JSON.stringify(data);
-                })
-                .catch((error) => {
-                    console.error('Fetch error:', error);
-                    document.getElementById('output').innerText = `Error: ${error.message}`;
-                });
-        });
-    </script>
-</body>
-</html>
   </div>
 
   <script>
